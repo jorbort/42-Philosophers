@@ -6,7 +6,7 @@
 /*   By: jbortolo <jbortolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 08:49:15 by jorge             #+#    #+#             */
-/*   Updated: 2023/10/03 10:07:42 by jbortolo         ###   ########.fr       */
+/*   Updated: 2023/10/04 16:40:36 by jbortolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ bool	is_digit(char c)
 
 void	ft_atoi(char *str, t_program *program, int argc)
 {
-	int	i;
-	int	n;
+	int			i;
+	long long	n;
 
 	n = 0;
 	i = 0;
