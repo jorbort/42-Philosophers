@@ -6,7 +6,7 @@
 /*   By: jbortolo <jbortolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 09:58:03 by jbortolo          #+#    #+#             */
-/*   Updated: 2023/10/04 15:50:57 by jbortolo         ###   ########.fr       */
+/*   Updated: 2023/10/04 16:30:09 by jbortolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	init_struct(t_program *program)
 	program->t_to_sleep = 0;
 	program->n_of_philos = 0;
 	program->flag = false;
+	program->full = false;
 }
 
 void	init_forks(t_program *program)
