@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   actions.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbortolo <jbortolo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jorge <jorge@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 15:58:45 by jbortolo          #+#    #+#             */
-/*   Updated: 2023/10/04 16:43:13 by jbortolo         ###   ########.fr       */
+/*   Updated: 2023/10/07 08:10:52 by jorge            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	eat(t_program *program, int index)
 	if (index == program->n_of_philos)
 	{
 		pthread_mutex_lock(&program->fork[index]);
-		pthread_mutex_lock(&program->fork[index - 1]);
+		pthread_mutex_lock(&program->fork[0]);
 	}
 	else
 	{

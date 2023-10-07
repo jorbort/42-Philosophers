@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbortolo <jbortolo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jorge <jorge@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 08:27:55 by jorge             #+#    #+#             */
-/*   Updated: 2023/10/04 15:18:46 by jbortolo         ###   ########.fr       */
+/*   Updated: 2023/10/07 08:45:18 by jorge            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,13 @@
 
 # define MAX_PHILOS 200
 
+typedef struct s_time
+{
+	int		current_time;
+	int		elapsed;
+	long	last_meal;
+
+}	t_time;
 
 typedef struct s_program
 {
@@ -34,11 +41,8 @@ typedef struct s_program
 	pthread_mutex_t	*fork;
 	bool			flag;
 	bool			full;
+	t_time			*p_time;
 }	t_program;
-
 //routine.c
 void	routine(t_program *program);
-
-
-
 #endif
