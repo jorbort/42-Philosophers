@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbortolo <jbortolo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jorge <jorge@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 08:36:50 by jorge             #+#    #+#             */
-/*   Updated: 2023/10/04 15:09:16 by jbortolo         ###   ########.fr       */
+/*   Updated: 2023/10/07 08:48:35 by jorge            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ void	start_program(t_program *program)
 
 	i = 0;
 	program->philos = malloc(sizeof(pthread_t *) * program->n_of_philos);
-
 	while (i < program->n_of_philos)
 	{
 		pthread_create(&program->philos[i], NULL, routine, NULL);
@@ -66,7 +65,6 @@ void	start_program(t_program *program)
 		i++;
 	}
 }
-
 
 int	main(int argc, char **argv)
 {
