@@ -6,7 +6,7 @@
 /*   By: jorge <jorge@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 15:10:35 by jbortolo          #+#    #+#             */
-/*   Updated: 2023/10/07 08:49:10 by jorge            ###   ########.fr       */
+/*   Updated: 2023/10/08 17:13:52 by jorge            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@ void	routine(t_program *program)
 {
 	while (program->flag == false || program->n_of_meals != 0)
 	{
-		to_do();
+		
 	}
 }
