@@ -6,7 +6,7 @@
 /*   By: jorge <jorge@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 08:27:55 by jorge             #+#    #+#             */
-/*   Updated: 2023/10/09 08:08:53 by jorge            ###   ########.fr       */
+/*   Updated: 2023/11/09 18:32:44 by jorge            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_philo
 	int					eat_count;
 	int					status;
 	int					eating;
-	unsigned int		time_to_die;
+	long				last_meal;
 	pthread_mutex_t		lock;
 	pthread_mutex_t		*r_fork;
 	pthread_mutex_t		*l_fork;

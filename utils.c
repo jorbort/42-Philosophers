@@ -6,7 +6,7 @@
 /*   By: jorge <jorge@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 08:49:15 by jorge             #+#    #+#             */
-/*   Updated: 2023/10/07 08:20:14 by jorge            ###   ########.fr       */
+/*   Updated: 2023/11/09 17:09:04 by jorge            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	ft_atoi(char *str, t_program *program, int argc)
 	if (argc == 4)
 		program->t_to_sleep = n;
 	if (argc == 5)
-		program->n_of_meals = n * program->n_of_philos;
+		program->n_of_meals = n;
 }
 
 bool	atoi_check(char **str, t_program *program)
