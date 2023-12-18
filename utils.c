@@ -3,66 +3,59 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jorge <jorge@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jorgebortolotti <jorgebortolotti@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 08:49:15 by jorge             #+#    #+#             */
-/*   Updated: 2023/11/09 17:09:04 by jorge            ###   ########.fr       */
+/*   Updated: 2023/12/18 21:06:09 by jorgebortol      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-bool	is_digit(char c)
+static int	is_digit(char c)
 {
-	if (c >= '0' && c <= '9')
-		return (true);
-	return (false);
+	if (c > 47 && c < 58)
+		return (1);
+	return (0);
 }
 
-void	ft_atoi(char *str, t_program *program, int argc)
+int	ft_atoi(char *str, int *ret)
 {
-	int			i;
-	long long	n;
+	int		p_n;
+	int		i;
 
-	n = 0;
 	i = 0;
+	p_n = 1;
+	if (*str == '-' && *str)
+	{
+		p_n *= -1;
+		str++;
+	}
+	if (!*str)
+		return (1);
 	while (str[i])
 	{
-		n = n * 10 + (str[i] - '0');
-		i++;
+		if (is_digit(str[i]) == 1)
+			*ret = (*ret * 10) + (str[i++] - '0');
+		else
+			return (1);
+		if (*ret * p_n > 2147483647 || *ret * p_n < -2147483648)
+			return (1);
 	}
-	if (argc == 1)
-		program->n_of_philos = n;
-	if (argc == 2)
-		program->t_to_die = n;
-	if (argc == 3)
-		program->t_to_eat = n;
-	if (argc == 4)
-		program->t_to_sleep = n;
-	if (argc == 5)
-		program->n_of_meals = n;
+	*ret = *ret * p_n;
+	return (0);
 }
 
-bool	atoi_check(char **str, t_program *program)
+void	free_ph_n_forks(t_program *program)
 {
-	int	i;
-	int	j;
+	free(program->philos);
+	free(program->forks);
+}
 
-	i = 1;
-	while (str[i])
-	{
-		j = 0;
-		if (str[i][j] == '-')
-			return (false);
-		while (str[i][j])
-		{
-			if (is_digit(str[i][j]) == false)
-				return (false);
-			j++;
-		}
-		i++;
-	}
-	i = 0;
-	ft_atoi(str[i], program, i);
-	return (true);
+void	print_lock(char *str, int id, t_program *program, long ms)
+{
+	pthread_mutex_lock(&program->status);
+	if (!program->flag)
+		printf("%ld philosopher %i %s\n", ms, id, str);
+	pthread_mutex_unlock(&program->status);
 }

@@ -1,23 +1,16 @@
 NAME=philo
-BONUS = philo_bonus
 
 CFLAGS= -Wall -Werror -Wextra -g -pthread
 CC = gcc
 
-SRC_1=	
-		
-
-BONUS_SRC=	
-
+SRC_1=	main.c monitor.c mutex.c philo.c time.c utils.c \
+			
 OBJECTS_1= $(SRC_1:.c=.o)
-BONUS_OBJ = ${BONUS_SRC:.c=.o}
+
 
 HEADER = philo.h
-HEADER_BONUS=
-
 
 all:  $(NAME) 
-bonus :  $(BONUS)
 
 %.o: %.c	$(HEADER) 
 	$(CC) $(CFLAGS)  -c -o  $@ $<
@@ -25,14 +18,11 @@ bonus :  $(BONUS)
 $(NAME): $(OBJECTS_1) $(HEADER)
 	$(CC) $(CFLAGS)  $(OBJECTS_1)  -o $(NAME) 
 
-$(BONUS): $(BONUS_OBJ) $(HEADER_BONUS)
-	$(CC) $(CFLAGS) $(BONUS_OBJ)  -o $(BONUS) 
-
 clean : 
 	rm -f *.o
 
 fclean : clean
-	rm -f $(NAME) $(BONUS)
+	rm -f $(NAME)
 
 re : fclean all
 
